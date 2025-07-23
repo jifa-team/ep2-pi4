@@ -1,0 +1,63 @@
+/* zera o estilo padrão do negador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* cria um container para limitar a largura */
+.container {
+    width: 90%;  /* Usa 90% da largura da tela */
+    max-width: 1200px; /* Máximo de 1200px, para não ficar muito largo em telas grandes */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 20px;
+}
+
+:root{
+
+    /*Cores*/
+    --primary-color: #FFFFFF;
+    --secondary-color: #6C757D;
+    --tertiary-color: #717275;
+    --text-color: #000000;  
+    --color-dark: #333333;
+    --color-light: #666666; 
+    --color-background: #f5f5f5;
+    --color-border: #ddd; 
+    --color-error: #dc2626; 
+    --color-button-hover: #4338ca; 
+    --color-button-disabled: #a5a5a5; 
+    --color-section-title: #2B446C;
+
+
+    /*  Espaçamentos */
+    --spacing-xs: 0.5rem;  (8px)
+    --spacing-sm: 0.75rem; (12px)
+    --spacing-md: 1rem;    (16px)
+    --spacing-lg: 1.5rem;  (24px)
+    --spacing-xl: 2rem;    (32px)
+
+    /* Tipografia */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-size-sm: 0.875rem; (14px)
+    --font-size-md: 1rem; (16px)
+    --font-size-lg: 1.5rem; (24px)    
+ }
+   
+
+body {
+    font-family: 'Montserrat', sans-serif;    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-image: url(../images/bg-jifa.png);
+    background-size: cover;
+    background-position: center;
+}
+
+main {
+    flex-grow: 1; /* usado para empurrar o footer para baixo, 
+    não importando o tamanho do conteudo da pagina */
+}
+

@@ -1,0 +1,327 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #2B446C;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* Adicionado para garantir que o z-index funcione corretamente */ 
+}
+
+/* Estilos para o contêiner de fundo */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/bg-jifa.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* Estilos para o main */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative; /* Adicionado para garantir que o z-index funcione corretamente */
+    z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+}
+
+/* Estilos para a seção de boas-vindas */
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.banner-container {
+    position: relative;
+    width: 100%;
+}
+
+.home-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text {
+    text-align: right;
+}
+
+.welcome-text h1 {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0;
+}
+
+.welcome-text p {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.welcome-content h2 {
+    color: #2B446C;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 48px;
+    font-weight: var(--sds-typography-heading-font-weight);
+    line-height: 120%;
+    letter-spacing: -0.96px;
+    margin: 20px 0;
+}
+
+.welcome-content button {
+    width: 490px;
+    height: 98px;
+    color: #2B446C; 
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold; 
+    line-height: 45px;
+    letter-spacing: 2px;
+    background-color: #fff; 
+    border: 1px solid #1E1E1E;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.welcome-content button img {
+    width: 24px;
+    height: 24px;
+}
+
+.welcome-content button:hover {
+    background-color: #D9D9D9; /* Cor mais escura para o hover */
+}
+
+/* Estilos para a seção de perguntas frequentes e feedback */
+.faq-feedback-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px; /* Espaço entre as seções */
+}
+
+.faq {
+    width: 48%;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.faq h2 {
+    color: #2B446C;
+    font-size: 32px;
+    font-weight: 700; /* Negrito */
+    line-height: 45px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.faq ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.faq li {
+    width: 100%;
+    color: #2B446C;
+    font-size: 20px; /* Tamanho maior para as perguntas */
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.48px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    margin: 10px 0;
+    padding: 15px; /* Mais espaço interno */
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feedback {
+    width: 48%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.feedback h2 {
+    color: #2B446C;
+    font-size: 32px;
+    font-weight: 700; /* Negrito */
+    line-height: 45px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin-bottom: 20px;
+}
+
+.stars img {
+    width: 40px; 
+    height: 40px;
+    cursor: pointer; /* Indica que são clicáveis */
+}
+
+.feedback button {
+    color: #2B446C;
+    font-size: 30px; 
+    font-weight: 700; /* Negrito */
+    line-height: 45px;
+    letter-spacing: 2px;
+    background-color: #8CCCD2; /* Fundo semi-transparente */
+    border: none;
+    padding: 10px 30px; 
+    border-radius: 20px; /* Bordas mais arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Efeito de transição suave */
+}
+
+.feedback button:hover {
+    background-color: #9bc8cc; /* Fundo semi-transparente ao passar o mouse */
+}
+
+/* Estilos para a seção do blog */
+.blog {
+    background-color: #fff; /* Mantém o fundo branco apenas no blog */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.blog h2 {
+    color: #010101;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 45px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.blog-images-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10 20px;
+}
+
+.blog-images-container img {
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para os três pontinhos */
+.three-dots {
+    width: 16px;
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsividade para a Tela (Home) */
+@media (max-width: 480px) {
+    .welcome {
+        padding: 20px 10px;
+    }
+
+    .welcome h1 {
+        font-size: 1.5em;
+    }
+
+    .welcome p {
+        font-size: 1.2em;
+    }
+
+    .welcome-content button {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .faq-feedback-container {
+        flex-direction: column;
+    }
+
+    .faq, .feedback {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .faq h2, .blog h2, .feedback h2 {
+        font-size: 1.5em;
+    }
+
+    .faq li, .blog p, .feedback button, .results p {
+        font-size: 1em;
+    }
+
+    .feedback button {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .blog-images-container {
+        flex-direction: column;
+    }
+
+    .arrow-left, .arrow-right {
+        display: none;
+    }
+}

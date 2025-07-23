@@ -1,0 +1,397 @@
+@import url('styles.css');
+
+/* Seção de perfil do usuário  - .user-profile*/
+.user-profile {
+    position: fixed;
+    top: 80px; /* Distância do topo */
+    right: 20px;  
+    width: 150px; 
+    background: #fff; 
+    border-radius: 12px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 12px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile img {
+    width: 45px; 
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover; /* Para a imagem não distorcer */
+}
+
+.user-profile .profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile .profile-info p {
+    font-size: var(--font-size-sm); 
+    color: var(--color-text-secondary);
+}
+
+.user-profile .profile-info strong {
+    font-size: var(--font-size-md); 
+    color: var(--color-text-primary);   
+}
+
+.latest-activities, .system-features, .blog {
+    margin: 0 auto;
+    margin-bottom: var(--spacing-lg); /* Espaçamento entre as seções */
+}
+
+/* Seção de atividades recentes - .latest-activities */
+.latest-activities {
+    background: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 16px; 
+    width: 100%;
+    max-width: 800px; 
+}
+
+.latest-activities h2 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+}
+
+.latest-activities h2 i {
+    margin-right: 8px; /* Ícone espaçado do título */
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;    
+}
+
+.activity-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Último item da lista não terá borda inferior */
+.activity-list li:last-child {
+    border-bottom: none;
+}
+
+.activity-list .activity-description {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    text-decoration: none;   
+    flex: 1; /* Permite que ocupe espaço disponível */
+    margin-right: var(--spacing-sm); /* Espaçamento entre descrição e data */
+}
+
+.activity-list .activity-date {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    width: 600px; /* Largura fixa para alinhar todas as datas */   
+    text-align: center; /* Centraliza o texto da data */
+    margin-right: var(--spacing-md); /* Espaçamento entre data e ícone */
+}
+
+.activity-list i {
+    font-size: var(--font-size-md);
+}
+
+/* Estilização específica para cada tipo de atividade */
+.activity-consultation .activity-description, 
+.activity-consultation .activity-date, 
+.activity-consultation i {
+    color: #007bff; /* Azul */
+}
+
+.activity-billing .activity-description, 
+.activity-billing .activity-date, 
+.activity-billing i {
+    color: #f4b400; /* Amarelo */
+}
+
+.activity-prescriptions .activity-description, 
+.activity-prescriptions .activity-date, 
+.activity-prescriptions i {
+    color: #ff6f00; /* Laranja */
+}
+
+/* Seção de funcionalidades do sistema - .system-features */
+.system-features {
+    background: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 16px; 
+    width: 100%;
+    max-width: 800px; 
+    margin-top: 30px; /* Espaçamento entre as seções */
+}
+
+/* Cabeçalho da seção */
+.system-features h2 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: var(--color-dark);
+    margin-bottom: 12px;    
+}
+
+.system-features .space {
+    margin-right: 8px; /* Ícone espaçado do título */
+}
+
+
+/* Botão de novo agendamento */
+.btn-new-service {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: auto; /* Empurra o botão para a direita */
+    display: block; /* Garante que o botão seja tratado como um bloco */
+}
+
+.btn-new-service:hover {
+    background-color: #0056b3;
+}
+
+/* Container das funcionalidades */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
+    gap: 16px;
+    margin-top: 16px; /* Espaço entre o botão e os cards */
+}
+
+/* Card de funcionalidade */
+.feature {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.feature:hover {
+    transform: translateY(-2px);
+}
+
+/* Ícone dentro do box */
+.box-feature {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+/* Ícones com cor destacada */
+.box-feature i {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* Cores específicas para cada funcionalidade */
+.feature:nth-child(1) .box-feature { background:rgba(74, 145, 226, 0.57); } /* Agendamentos */
+.feature:nth-child(1) i { color: #4A90E2; }
+
+.feature:nth-child(2) .box-feature { background:rgba(106, 191, 105, 0.57); } /* Histórico */
+.feature:nth-child(2) i { color: #6ABF69; }
+
+.feature:nth-child(3) .box-feature { background:rgba(245, 165, 35, 0.57); } /* Prontuário */
+.feature:nth-child(3) i { color: #F5A623; }
+
+.feature:nth-child(4) .box-feature { background:rgba(141, 68, 173, 0.57); } /* Tratamentos */
+.feature:nth-child(4) i { color: #8E44AD; }
+
+.feature:nth-child(5) .box-feature { background:rgba(248, 230, 28, 0.57); } /* Pagamentos */
+.feature:nth-child(5) i { color: #F8E71C; }
+
+.feature:nth-child(6) .box-feature { background:rgba(208, 2, 26, 0.57); } /* Notificações */
+.feature:nth-child(6) i { color: #D0021B; }
+
+.feature p {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* Estilização da seção Blog */
+.blog {
+    width: 100%;
+    max-width: 800px;    
+    padding: 0 16px; 
+    margin-top: 30px; /* Espaçamento entre as seções */
+}
+
+/* Cabeçalho da seção */
+.blog h2 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: var(--color-dark);    
+    margin-bottom: 12px;    
+}
+
+.blog i {    
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+/* Estilização dos posts */
+.blog-posts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Cada post */
+.blog-post {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-post a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.blog-post img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Efeito ao passar o mouse */
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-arrow:hover {
+    color: #007bff;
+}
+
+@media (max-width: 768px) {
+    
+    /* Ajuste do container principal */
+    .container {
+        padding: 10px;
+    }
+
+    /* Perfil do Usuário - Reduzindo tamanho e reposicionando */
+    .user-profile {
+        position: static; /* Remove o posicionamento fixo */
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-profile img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Últimas Atividades */
+    .latest-activities {
+        max-width: 100%;
+        padding: 12px;
+    }
+
+    .latest-activities h2 {
+        font-size: 16px;
+    }
+
+    .activity-list li {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .activity-list .activity-description,
+    .activity-list .activity-date {
+        font-size: 14px;
+    }
+
+    /* Seção de Funcionalidades */
+    .system-features {
+        max-width: 100%;
+        padding: 12px;
+    }
+
+    .system-features h2 {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .btn-new-service {
+        display: block;
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr); /* Exibe 2 cards por linha */
+        gap: 10px;
+    }
+
+    .feature {
+        padding: 10px;
+    }
+
+    /* Seção de Blog */
+    .blog {
+        max-width: 100%;
+        padding: 12px;
+    }
+
+    .blog h2 {
+        font-size: 16px;
+    }
+
+    .blog-posts {
+        display: flex;
+        overflow-x: auto; /* Permite rolagem horizontal */
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    .blog-post {
+        min-width: 80%; /* Permite deslizar os posts horizontalmente */
+        flex-shrink: 0;
+    }
+
+    .nav-arrow {
+        display: none; /* Esconde as setas em telas menores */
+    }
+}
+
+
+

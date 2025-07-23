@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <script src="https://kit.fontawesome.com/8372ccf781.js" crossorigin="anonymous" defer></script> <!-- Biblioteca de ícones -->
+    <script src="/assets/js/padronizacao.js" defer></script> <!-- Importa o script que carrega os componentes header e footer -->
+    <!--Scripts com "defer" aconselha-se o uso no head, pois o defer vai garantir que o script seja executado mais cedo.
+    Removi o defer no final do body, o script espera que o conteudo do DOM já esteja carregado, mas ao chegar no script, já é pra 
+    tudo ter carregado.-->
+  </head>
+<body>
+    <!-- Placeholder para o Header -->
+    <div id="header-placeholder"></div>
+
+
+  <main>
+      <div class="login-container">
+          <div class="login-header">
+            <h1 class="login-title">Entre para acessar a sua conta</h1>
+            <p class="login-description">Faça login usando o seu CPF e Senha cadastrada ou com o seu serviço de e-mail.</p>
+          </div>
+          <form id="loginForm" class="login-form">
+            <div id="errorContainer" class="error-message"></div>
+            
+            <div class="form-group">
+              <label for="cpf" class="form-label">CPF</label>
+              <input 
+                type="cpf" 
+                id="cpf" 
+                class="form-input" 
+                placeholder="000.000.000-00" 
+                required
+              >
+            </div>
+            
+            <div class="form-group">
+              <div class="password-header">
+                <label for="password" class="form-label">Senha</label>
+                <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+              </div>
+              <input 
+                type="password" 
+                id="password" 
+                class="form-input" 
+                required
+              >
+            </div>
+            
+            <div class="form-group options-row">
+              <div class="remember-me">
+                <input type="checkbox" id="rememberPassword" class="checkbox-input">
+                <label for="rememberPassword" class="checkbox-label">Lembrar senha</label>
+              </div>
+              <a href="/views/cadastro.html" class="create-account">Criar nova conta</a>
+            </div>
+            
+            <div class="form-group">
+              <button type="submit" id="loginButton" class="login-button">Entrar</button>
+            </div>
+          </form>
+        </div>
+  </main>
+
+    <!-- Placeholder para o Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="/assets/js/login.js"></script> <!-- Importa o script que vai carregar a lógica do login -->
+</body>
+</html>

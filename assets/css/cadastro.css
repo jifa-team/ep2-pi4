@@ -1,0 +1,148 @@
+/* reaproveitei a estilização do login.css e repliquei para o cadastro, deixando espaço para maior modularização do conteúdo da página de cadastro
+assim, reaproveitamos um estilo que serve muito bem hoje, mas podemos adaptar esse estilo em uma página ou outra mais pra frente sem que
+afete uma a outra
+*/
+
+/* Rem foi usado quando criando layouts com a necessidade de serem flexíveis, enquanto pixel foi usado para definir tamanhos fixos */
+.login-container {
+    background-color: transparent;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    margin: 50px auto;
+}
+
+.login-header {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.login-description {
+    color: #666;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.login-form {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.875rem;
+}
+
+/* estilização específica da página de cadastro */
+.name-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.name-row .form-input {
+    flex: 1;
+}
+
+.city-state-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.city-state-row .form-input {
+    flex: 1;
+}
+
+/* Estilização compartilhada com login */
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+/* estilização mensagem de erro (mantida igual a do login) */
+.error-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none;
+    padding: 0.75rem;
+    background-color: #fee2e2;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+/* estilização do botão (mantida igual a do login) */
+.login-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-button:hover {
+    background-color: #4338ca;
+}
+
+.login-button:disabled {
+    background-color: #a5a5a5;
+    cursor: not-allowed;
+}
+
+/*Responsividade mobile (adaptada para cadastro)*/
+@media (max-width: 480px) {
+    .login-container {
+        border-radius: 0;
+    }
+
+    .name-row,
+    .city-state-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .city-state-row {
+        margin-top: 0;
+    }
+}

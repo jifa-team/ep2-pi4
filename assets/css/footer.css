@@ -1,0 +1,57 @@
+footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: #6C757D;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+
+
+.social-media {
+    margin-bottom: 10px;
+}
+
+.social-media p {
+    font-size: 16px; 
+    margin-bottom: 8px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icons a {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.icons a:hover {
+    transform: scale(1.2);
+}
+
+.copyright p {
+    font-size: 12px;
+    margin: 3px 0;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .social-media p {
+        font-size: 14px;
+    }
+
+    .icons a {
+        font-size: 18px;
+    }
+}
