@@ -1,0 +1,37 @@
+/* fundo e cor do texto */
+body {
+    background-image: url("../../assets/images/bg-jifa.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #2B446C;
+}
+
+/* Títulos */
+.section-title {
+    color: #2B446C;
+    font-weight: bold;
+}
+
+/* Preço do plano */
+.price {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Botão */
+.btn-custom {
+    background-color: #D9D9D9;
+    color: #2B446C;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Formulário */
+.form-control {
+    background-color: white;
+}

@@ -1,0 +1,1 @@
+//fiz o fetch de dados.json direto no arquivo de login.js, não era mais necessário estar aqui. mais pra frente decidimos se mantemos aqui uma pasta main ou cada pasta fica com seu arquivo .js;

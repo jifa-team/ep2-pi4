@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Cliente</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/painel-cliente.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+</head>
+
+<body>
+    <!-- Placeholder para o Header -->
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+
+        <!-- Perfil do Usuário-->
+        <section class="user-profile">
+            <div class="profile-info">
+                <p>Bem vindo!</p>
+                <strong>Zezinho</strong>
+            </div>
+            <img class="img" src="../assets/images/painel-cliente/profile-1.jpg" alt="foto do perfil do usuário" />
+        </section>
+
+        <!-- Últimas atividades -->
+        <section class="latest-activities">
+
+            <h2><i class="fa-solid fa-clock-rotate-left"></i>Suas Últimas Atividades</h2>
+            <ul class="activity-list">
+                <li class="activity-consultation">
+                    <p class="activity-description">Consulta</p>
+                    <p class="activity-date">15/02</p>
+                    <i class="fa-solid fa-calendar activity-icon"></i>
+                </li>
+
+                <li class="activity-billing">
+                    <p class="activity-description">Fatura</p>
+                    <p class="activity-date">11/02</p>
+                    <i class="fa-solid fa-credit-card activity-icon"></i>
+                </li>
+
+                <li class="activity-prescriptions">
+                    <p class="activity-description">Últimas Prescrições</p>
+                    <p class="activity-date">02/02</p>
+                    <i class="fa-solid fa-laptop-medical activity-icon"></i>
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- Funcionalidades do Sistema -->
+        <section class="system-features">
+
+            <h2><i class="fa-regular fa-circle-check space"></i>Você Pode</h2>
+
+            <button class="btn-new-service">novo agendamento</button>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="box-feature">
+                        <i class="fa-solid fa-calendar"></i>
+                    </div>
+                    <p>agendamentos</p>
+                </div>
+                <div class="feature">
+                    <div class="box-feature">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                    </div>
+                    <p>histórico</p>
+                </div>
+                <div class="feature">
+                    <div class="box-feature">
+                        <i class="fa-solid fa-laptop-medical"></i>
+                    </div>
+                    <p>prontuário</p>
+                </div>
+                <div class="feature">
+                    <div class="box-feature">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <p>tratamentos</p>
+                </div>
+                <div class="feature">
+                    <div class="box-feature">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+                    <p>pagamentos</p>
+                </div>
+                <div class="feature">
+                    <div class="box-feature">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <p>notificações</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Posts -->
+        <section class="blog">
+            
+            <h2><i class="fa-regular fa-newspaper"></i>Blog</h2>
+
+            <div class="blog-posts">
+                <button class="nav-arrow prev-arrow" aria-label="Post anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <article class="blog-post">
+                    <a href="#link-para-post-1">
+                        <img src="../assets/images/painel-cliente/blog1-jifa.png"
+                            alt="Descrição da imagem do blog post 1" />
+                    </a>
+                </article>
+                <article class="blog-post">
+                    <a href="#link-para-post-2">
+                        <img src="../assets/images/painel-cliente/blog2-jifa.png"
+                            alt="Descrição da imagem do blog post 2" />
+                    </a>
+                </article>
+                <article class="blog-post">
+                    <a href="#link-para-post-3">
+                        <img src="../assets/images/painel-cliente/blog3-jifa.png"
+                            alt="Descrição da imagem do blog post 3" />
+                    </a>
+                </article>
+                <button class="nav-arrow next-arrow" aria-label="Próximo post">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Placeholder para o Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://kit.fontawesome.com/8372ccf781.js" crossorigin="anonymous"></script>
+    <!-- Biblioteca de ícones -->
+    <script src="/assets/js/padronizacao.js" defer></script>
+    <!-- Importa o script que carrega os componentes header e footer -->
+</body>
+
+</html>

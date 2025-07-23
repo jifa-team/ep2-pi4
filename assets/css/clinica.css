@@ -1,0 +1,356 @@
+@import url("styles.css");
+
+/* Seção de localização */
+.our-location {    
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px
+}
+
+.our-location i {
+    color: var(--color-dark);
+    font-size: var(--font-size-lg);    
+}
+
+.our-location h2 {
+    color: var(--color-dark);
+    font-size: var(--font-size-md);
+    margin: 0;
+    padding: 5px;
+}
+
+/* Mapa */
+.map{
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.address-map {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* Apresentação local */
+.local-presentation {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+    padding: 40px 20px;
+    background-color: var(--color-background);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Responsividade */
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.img-consultorio {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-consultorio:hover {
+    transform: scale(1.05);
+}
+
+.txt-office {
+    flex: 1;
+    min-width: 300px;
+    text-align: justify;
+}
+
+.txt-office h2 {
+    color:var(--color-section-title);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.txt-office p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+/* Instalações */
+.facilities {
+    margin-top: 35px;
+}
+
+.images-facilities {
+    margin-top: 20px;
+    display: flex; 
+    gap: 20px;
+    justify-content: space-between; /* Adicionado para melhor distribuição do espaço */
+    flex-wrap: wrap; /* Adicionado para responsividade */
+}.facilities {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px 20px;
+}
+
+.facilities h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-section-title);
+}
+
+/* Estilização do carrossel */
+.images-facilities {
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+/* Personaliza a barra de rolagem */
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel::-webkit-scrollbar-track {
+    background: var(--color-border);
+    border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: var(--color-button-hover);
+    border-radius: 10px;
+}
+
+.img-installation {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    scroll-snap-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-installation:hover {
+    transform: scale(1.05);
+}
+
+.talk-to-us {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px 20px;
+}
+
+.talk-to-us h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-section-title);   
+}
+
+/* Container para alinhar os itens na vertical */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Card de cada item */
+.card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(241, 238, 238, 0.2);
+    border-radius: 100px 0px 100px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícones dentro das caixas */
+.card i {
+    font-size: 1.8rem;
+    color: var(--color-button-hover);
+}
+
+/* Texto dentro das caixas */
+.card h3 {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 2px 0;
+}
+
+/* Seção CTA */
+.cta-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--color-background);
+    color: var(--color-dark);
+    border-radius: 30px;
+    margin: 50px auto;
+    max-width: 800px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Título do CTA */
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Texto complementar */
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Botão de agendamento */
+.btn-avaliacao button {
+    background: #313131;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito Hover */
+.btn-avaliacao button:hover {
+    background: #4338ca;
+    transform: scale(1.05);
+}
+
+/* Responsividade para telas menores que 768px */
+@media (width < 768px) {
+    
+    /* Ajuste no container principal */
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    /* Seção de localização */
+    .our-location {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .map {
+        height: 300px;
+    }
+
+    .address-map {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    /* Apresentação da clínica */
+    .local-presentation {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .txt-office h2 {
+        font-size: 1.8rem;
+    }
+
+    .txt-office p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Seção de Instalações (Carrossel) */
+    .images-facilities {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .img-installation {
+        max-width: 100%;
+        margin-bottom: 10px
+    }
+
+    /* Fale Conosco */
+    .talk-to-us .contact {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Call to Action */
+    .cta-section {
+        padding: 40px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+
+    .btn-avaliacao button {
+        width: 100%;
+        font-size: 1.3rem;
+        padding: 12px;
+    }
+}
+
+
+
+
+
+
+
+

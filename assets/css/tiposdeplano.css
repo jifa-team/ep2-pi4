@@ -1,0 +1,95 @@
+/* Estilos dos tipos de planos */
+
+/* Fundo da página e cor  */
+body {
+    background-image: url("../../assets/images/bg-jifa.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #2B446C;
+}
+
+/* Títulos */
+.section-title {
+    color: #2B446C;
+    font-weight: bold;
+}
+
+/* Botão "Adquira seu plano" */
+.btn-plan {
+    background-color: #A4E3E9;
+    color: #2B446C;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Container de benefícios */
+.benefits-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.benefits-container img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.benefits-container ul {
+    flex: 1;
+    list-style-type: disc;
+}
+
+.benefits-container li {
+    margin-bottom: 8px;
+}
+
+/* Linha do tempo de carências */
+.timeline {
+    position: relative;
+    margin-top: 30px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #A4E3E9;
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.timeline-content {
+    width: 45%;
+}
+
+.timeline-bullet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #A4E3E9;
+    border-radius: 50%;
+    z-index: 1;
+}
