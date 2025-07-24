@@ -52,7 +52,7 @@ jobs:
           CYPRESS_baseUrl: 'http://localhost:5000'
 
 #build do projeto
-build:
+  build:
       name: Build Estático (simulado)
       runs-on: ubuntu-latest
       steps:
