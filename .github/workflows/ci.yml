@@ -10,6 +10,17 @@ on:
 #tarefas para executar antes do build
 jobs:
   lint:
+    name: Lint JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar ESLint globalmente
+        run: |
+          npm install -g eslint
+          eslint assets/js --ext .js
+
 
 
   cypress:
