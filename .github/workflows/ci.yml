@@ -35,13 +35,7 @@ jobs:
 
       - name: Servir aplicação na porta 5000
         run: serve . -l 5000 &
-        # isso serve o index.html na raiz
-
-      - name: Esperar aplicação iniciar
-        uses: jakejarvis/wait-action@v0.1.1
-        with:
-          url: http://localhost:5000
-          timeout: 30
+        # isso serve o index.html na raiz      
 
       - name: Executar testes Cypress
         uses: cypress-io/github-action@v6
