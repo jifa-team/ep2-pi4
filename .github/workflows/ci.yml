@@ -1,0 +1,19 @@
+name: CI Jifa
+
+#inicializador
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+#tarefas para executar antes do build
+jobs:
+  lint:
+
+
+  cypress:
+
+#build do projeto
+build:
+
