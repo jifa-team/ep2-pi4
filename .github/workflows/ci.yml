@@ -53,4 +53,13 @@ jobs:
 
 #build do projeto
 build:
+      name: Build Estático (simulado)
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
 
+      - name: Criar diretório de build
+        run: |
+          mkdir build
+          cp -R index.html views/ assets/ build/
