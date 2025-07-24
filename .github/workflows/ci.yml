@@ -24,6 +24,32 @@ jobs:
 
 
   cypress:
+    name: Testes E2E com Cypress
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar servidor estático
+        run: npm install -g serve
+
+      - name: Servir aplicação na porta 5000
+        run: serve . -l 5000 &
+        # isso serve o index.html na raiz
+
+      - name: Esperar aplicação iniciar
+        uses: jakejarvis/wait-action@v0.1.1
+        with:
+          url: http://localhost:5000
+          timeout: 30
+
+      - name: Executar testes Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          wait-on: 'http://localhost:5000'
+          wait-on-timeout: 30
+        env:
+          CYPRESS_baseUrl: 'http://localhost:5000'
 
 #build do projeto
 build:
