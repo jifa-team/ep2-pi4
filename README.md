@@ -26,7 +26,7 @@ Melhora a leitura e manutenção do código
 🚀 No seu CI
 No GitHub Actions, usamos o eslint para examinar os arquivos em assets/js/. Ele roda toda vez que você faz um push ou pull request, garantindo que o código esteja limpo antes de ir para produção.
 
-CARLOS 
+
 🧪 2. Cypress — Testes End-to-End
 📌 O que é?
 Cypress é uma ferramenta para testar a aplicação como um usuário real faria, diretamente no navegador.
