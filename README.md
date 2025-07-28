@@ -11,7 +11,7 @@ O propósito de aprendermos, e principalmente realizar na prática nesse entreg�
 
 ##  Vídeo e documento sobre o entregável parcial 1 (EP1)
 🎬 **Apresentação do EP1**
-[enter link description here](https://www.youtube.com/watch?v=oTqaw-nsfEE)
+    -> [Apresentação](https://www.youtube.com/watch?v=oTqaw-nsfEE)
 
 📄 **Documento Obrigatório da  Disciplina**
      -> [Entregável Parcial 1 (EP1) - Relatório](https://docs.google.com/document/d/1_VnVeQSXsw2X4ZG_k93ufnbYCXhp_ikSqv9oFokK_Rg/edit?usp=sharing)
