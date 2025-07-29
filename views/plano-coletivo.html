@@ -5,27 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plano Coletivo - JIFA Odontologia</title>
 
-    <!-- CSS unificado e Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/tiposdeplano.css">
+    <link rel="stylesheet" href="/assets/css/tiposdeplano.css">
 
     <script src="https://kit.fontawesome.com/8372ccf781.js" crossorigin="anonymous" defer></script>
-    <script src="../../assets/js/padronizacao.js" defer></script>
+    <script src="/assets/js/padronizacao.js" defer></script>
 </head>
 <body>
     <div id="header-placeholder"></div>
 
     <div class="container py-5">
         <div class="d-flex justify-content-end">
-            <a href="aquisicao.html" class="btn-plan"
-               onclick="setPlano('PLANO COLETIVO', '../../assets/images/planos/img.png', 74.99, ['Consulta','Limpeza','Radiografia','Extração','Restauração','Emergência','Tratamento de Canal','Cirurgia','Atendimento rápido','Desconto em procedimentos não cobertos'])">
+             <a href="/views/aquisicao.html" class="btn-plan"
+               onclick="setPlano('PLANO COLETIVO', '/assets/images/planos/img.png', 74.99, ['Consulta','Limpeza','Radiografia','Extração','Restauração','Emergência','Tratamento de Canal','Cirurgia','Atendimento rápido','Desconto em procedimentos não cobertos'])">
                 ADQUIRA SEU PLANO
             </a>
         </div>
 
         <h2 class="section-title">BENEFÍCIOS</h2>
         <div class="benefits-container">
-            <img src="../../assets/images/planos/img.png" alt="Plano Coletivo">
+            <img src="/assets/images/planos/img.png" alt="Plano Coletivo">
             <ul>
                 <li>Indicado para empresas e grupos</li>
                 <li>Consultas ilimitadas</li>
@@ -78,26 +77,14 @@
     <div id="footer-placeholder"></div>
 
     <script>
+        // Esta função é específica para a lógica de planos, então pode continuar aqui.
         function setPlano(nome, imagem, preco, beneficios) {
             localStorage.setItem('plano_nome', nome);
             localStorage.setItem('plano_imagem', imagem);
             localStorage.setItem('plano_preco', preco);
             localStorage.setItem('plano_beneficios', JSON.stringify(beneficios));
         }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            fetch('../../views/templates/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                });
-
-            fetch('../../views/templates/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                });
-        });
     </script>
-</body>
+    
+    </body>
 </html>

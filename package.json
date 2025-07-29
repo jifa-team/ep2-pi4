@@ -1,0 +1,12 @@
+{
+  "name": "acutis-website",
+  "version": "1.0.0",
+  "description": "Ferramentas de teste e lint para o site estático.",
+  "private": true,
+  "devDependencies": {
+    "cypress": "^13.9.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-cypress": "^3.0.0",
+    "serve": "^14.2.3"
+  }
+}

@@ -1,0 +1,39 @@
+name: CI/CD Jifa
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test_and_lint:
+    name: Testar e Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      # Este único passo lê o package.json e instala tudo localmente
+      - name: Instalar dependências de desenvolvimento
+        run: npm install
+
+      # O passo de lint agora usa npx para rodar a versão local
+      - name: Rodar ESLint
+        run: npx eslint .
+
+      # O passo de cypress também usa npx
+      - name: Servir aplicação e rodar testes Cypress
+        run: |
+          npx serve . -l 5000 &
+          npx cypress run --config baseUrl=http://localhost:5000
+          
+  deploy:
+    name: Deploy no EasyPanel
+    # Depende do job de teste e lint passar
+    needs: [test_and_lint]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger EasyPanel Redeploy
+        run: curl -X POST ${{ secrets.EASYPANEL_DEPLOY_WEBHOOK }}
