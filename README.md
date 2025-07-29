@@ -122,6 +122,10 @@ Em vez de só copiar arquivos, agora construímos uma "casa" completa para o nos
 
 Para que o site ficasse no ar com toda essa automação, montamos uma estrutura profissional. Pense nela como a construção de um prédio:
 
+
+![ferramentas](https://github.com/user-attachments/assets/cda0d362-fe55-461a-beac-28afbd40534c)
+
+
 * 🌐 **DigitalOcean Droplet — O Terreno**
     Compramos nosso "terreno na internet". É um servidor privado, uma máquina virtual potente que nos dá total controle.
 
