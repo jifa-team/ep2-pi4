@@ -38,7 +38,6 @@ Um linter é uma ferramenta que analisa seu código fonte sem executá-lo, em bu
 🚀 **No seu CI**
 No GitHub Actions, usamos o `eslint` para examinar os arquivos em `assets/js/`. Ele roda toda vez que você faz um push ou pull request, garantindo que o código esteja limpo antes de ir para produção.
 
-CARLOS
 🧪 **2. Cypress — Testes End-to-End**
 📌 **O que é?**
 Cypress é uma ferramenta para testar a aplicação como um usuário real faria, diretamente no navegador.
@@ -96,7 +95,15 @@ Quando é feito um push:
 
 Depois de garantir que o código estava limpo e os testes passavam, demos o próximo passo: a **publicação automática**! Agora, nosso projeto não apenas se testa, ele se publica sozinho na internet.
 
-O site está no ar e pode ser acessado em: **`https://jifaodonto.online`**
+O site está no ar e pode ser acessado em: [**`https://jifaodonto.online`**](https://jifaodonto.online)
+
+### O CI-CD ao vivo
+
+
+https://github.com/user-attachments/assets/799331e8-a019-4510-bcf4-157c5cbd90fb
+
+
+
 
 ### Da Integração Contínua (CI) à Implantação Contínua (CD)
 
