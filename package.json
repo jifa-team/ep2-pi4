@@ -8,5 +8,8 @@
     "eslint": "^8.57.0",
     "eslint-plugin-cypress": "^3.0.0",
     "serve": "^14.2.3"
+  },
+  "dependencies": {
+    "mongoose": "^8.17.0"
   }
 }
