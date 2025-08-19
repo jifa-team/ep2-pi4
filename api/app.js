@@ -1,21 +1,22 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-
-// Conexão com o banco
-require('./database');
-
 const app = express();
-app.use(cors());
+const mongoose = require('mongoose');
 app.use(express.json());
 
-// Rotas de exemplo (adicione as reais depois)
-app.get('/', (req, res) => {
-  res.send('API JifaOdonto rodando!');
+
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true,});
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Erro de conexão:'));
+db.once('open', () => {
+  console.log('Conexão com o banco de dados estabelecida com sucesso!');
 });
 
-// Exporte as rotas reais aqui, ex: app.use('/api/users', require('./routes/userRoutes'));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+
+
+app.listen(3000, () => console.log("Server Started"));

@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     browser: true,
+    node: true,   // ✅ adiciona suporte ao Node
     es2021: true,
   },
   extends: "eslint:recommended",
@@ -18,15 +19,10 @@ module.exports = {
         node: true,
       },
     },
-    // SEÇÃO PARA O CYPRESS:
     {
-      // Aplica estas regras apenas para os arquivos dentro da pasta cypress
       files: ["cypress/**/*.cy.{js,jsx}"],
-      // Adiciona o plugin do Cypress
       plugins: ["cypress"],
-      // Usa as regras recomendadas do plugin
       extends: ["plugin:cypress/recommended"],
-      // Define o ambiente do Cypress para reconhecer globais como 'cy', 'describe', 'it'
       env: {
         "cypress/globals": true,
       },
