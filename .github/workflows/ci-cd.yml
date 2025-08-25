@@ -28,12 +28,12 @@ jobs:
           npx serve . -l 5000 &
           npx cypress run --config baseUrl=http://localhost:5000
           
-  deploy:
-    name: Deploy no EasyPanel
+  ##deploy:
+    ##name: Deploy no EasyPanel
     # Depende do job de teste e lint passar
-    needs: [test_and_lint]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger EasyPanel Redeploy
-        run: curl -X POST ${{ secrets.EASYPANEL_DEPLOY_WEBHOOK }}
+    #needs: [test_and_lint]
+    #if: github.ref == 'refs/heads/main' && github.event_name == #'push'
+    #runs-on: ubuntu-latest
+    #steps:
+      #- name: Trigger EasyPanel Redeploy
+        #run: curl -X POST ${{ secrets.EASYPANEL_DEPLOY_WEBHOOK }}
