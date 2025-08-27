@@ -2,7 +2,7 @@ GET http://localhost:3000/users
 
 ###
 
-GET http://localhost:3000/users/68a3e4275cfbfe1907a5e35b
+GET http://localhost:3000/users/68af4b9aa4b428d5f7fb0f30
 
 ###
 
@@ -10,12 +10,12 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "firstName": "Nome",
-  "lastName": "Sobrenome",
-  "email": "email@example.com",
+  "firstName": "Antônio",
+  "lastName": "da Silva",
+  "email": "email1@example.com",
   "password": "senha",
   "phone": "123456789",
-  "cpf": "12345678901",
+  "cpf": "12345671231",
   "address": {
     "street": "Rua Exemplo, 123",
     "complement": "Apto 45",
@@ -27,14 +27,33 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/users/68a3de9063e7b572140d42e0
+DELETE http://localhost:3000/users/68af4b9aa4b428d5f7fb0f30
 
 ###
 
-PATCH http://localhost:3000/users/68a3e4275cfbfe1907a5e35b
+PATCH http://localhost:3000/users/68af5241a4b428d5f7fb0f3a
 Content-Type: application/json
 
 {
-  "firstName": "Nome Atualizado",
-  "lastName": "Sobrenome Atualizado"
+  "firstName": "Zezito",
+  "lastName": "Vicentino"
+}
+
+###
+### APPOINTMENTS ###
+
+# Listar todos os agendamentos
+GET http://localhost:3000/appointments
+
+###
+
+# Criar um novo agendamento
+POST http://localhost:3000/appointments
+Content-Type: application/json
+
+{
+  "userId": "68af5241a4b428d5f7fb0f3a",
+  "date": "2025-09-30T10:00:00.000Z",
+  "time": "15:00",
+  "notes": "Check-up de rotina."
 }

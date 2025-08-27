@@ -19,5 +19,8 @@ require('./database');
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
+const appointmentsRouter = require('./routes/appointments');
+app.use('/appointments', appointmentsRouter);
+
 
 app.listen(3000, () => console.log("Server Started"));
