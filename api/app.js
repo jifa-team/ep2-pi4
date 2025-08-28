@@ -22,5 +22,7 @@ app.use('/users', usersRouter);
 const appointmentsRouter = require('./routes/appointments');
 app.use('/appointments', appointmentsRouter);
 
+const authRouter = require('./routes/auth');
+app.use('/api/auth', authRouter); 
 
 app.listen(3000, () => console.log("Server Started"));

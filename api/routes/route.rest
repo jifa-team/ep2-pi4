@@ -57,3 +57,14 @@ Content-Type: application/json
   "time": "15:00",
   "notes": "Check-up de rotina."
 }
+
+### LOGIN ###
+
+POST http://localhost:3000/api/auth
+Content-Type: application/json
+
+{
+  "email": "email1@example.com",
+  "password": "senha"
+}
+
