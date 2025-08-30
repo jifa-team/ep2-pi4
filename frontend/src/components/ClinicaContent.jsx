@@ -1,7 +1,8 @@
 import React from 'react';
+import MainContainer from './MainContainer';
 
 const ClinicaContent = () => (
-  <main className="max-w-5xl mx-auto mt-8 mb-16 px-4">
+  <MainContainer>
     {/* Seção de Localização */}
     <section className="mb-10">
       <div className="flex items-center gap-2 text-blue-900 text-lg font-semibold">
@@ -85,7 +86,7 @@ const ClinicaContent = () => (
         <button className="bg-blue-900 text-white rounded-md px-8 py-2 font-semibold hover:bg-blue-800 transition">AGENDAR AGORA</button>
       </div>
     </section>
-  </main>
+  </MainContainer>
 );
 
 export default ClinicaContent;

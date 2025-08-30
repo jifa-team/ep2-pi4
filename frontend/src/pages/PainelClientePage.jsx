@@ -1,10 +1,11 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import MainContainer from '../components/MainContainer';
 
 function PainelClientePage() {
   return (
     <Layout>
-      <main className="max-w-5xl mx-auto py-8 px-4">
+      <MainContainer>
         {/* Perfil do Usuário */}
         <section className="flex items-center gap-6 mb-8">
           <div className="flex flex-col justify-center">
@@ -136,7 +137,7 @@ function PainelClientePage() {
             </button>
           </div>
         </section>
-      </main>
+      </MainContainer>
     </Layout>
   );
 }
