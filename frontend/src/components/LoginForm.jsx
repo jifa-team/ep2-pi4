@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoginForm = () => {
   return (
-    <div className="max-w-2xl mt-12 bg-white rounded-xl shadow-lg p-8">
+    <div className="max-w-2xl mx-auto mt-12 bg-white rounded-xl shadow-lg p-8">
       <div className="mb-6 text-center">
         <h1 className="text-2xl font-bold text-blue-900 mb-2">Entre para acessar a sua conta</h1>
         <p className="text-gray-600 text-base">Faça login usando o seu CPF e Senha cadastrada ou com o seu serviço de e-mail.</p>
