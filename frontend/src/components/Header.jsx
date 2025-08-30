@@ -19,8 +19,7 @@ const Header = () => (
             <li><Link to="/" className="hover:text-blue-600 transition">HOME</Link></li>
             <li><Link to="/quem-somos" className="hover:text-blue-600 transition">QUEM SOMOS</Link></li>
             <li><Link to="/clinica" className="hover:text-blue-600 transition">CLÍNICA</Link></li>
-            <li><Link to="/painel-cliente" className="hover:text-blue-600 transition">PAINEL DO CLIENTE</Link></li>
-            <li><Link to="/plano-inicio" className="hover:text-blue-600 transition">PLANOS</Link></li>
+            <li><Link to="/painel-cliente" className="hover:text-blue-600 transition">PAINEL DO CLIENTE</Link></li>            
         </ul>
     </nav>  
   </header>
