@@ -70,11 +70,13 @@ function PainelClientePage() {
 
         {/* Funcionalidades do Sistema */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <CircleCheck className="w-5 h-5 text-primary" />
-            Você Pode
-          </h2>
-          <Button className="mb-6">novo agendamento</Button>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-semibold flex items-center gap-2">
+              <CircleCheck className="w-5 h-5 text-primary" />
+              Você Pode
+            </h2>
+            <Button size="lg">novo agendamento</Button>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <Card key={index} className="hover:border-primary/80 transition-colors cursor-pointer">
