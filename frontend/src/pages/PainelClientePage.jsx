@@ -20,7 +20,7 @@ import {
 
 function PainelClientePage() {
   // Simula o estado de login e dados do usuário
-  const [isLoggedIn] = useState(false); // TODO: Integrar com o sistema de autenticação real para gerenciar o estado de login
+  const [isLoggedIn] = useState(true); // TODO: Integrar com o sistema de autenticação real para gerenciar o estado de login
   // Altere para false para testar o comportamento de não logado
   const [userName] = useState('Zezinho');
   const [profileImage] = useState('/assets/images/painel-cliente/profile-1.jpg');
@@ -36,12 +36,13 @@ function PainelClientePage() {
 
   return (
     <Layout>
-      <MainContainer>
-        {/* Perfil do Usuário - Renderizado condicionalmente */}
-        {isLoggedIn && (
+      {/* Perfil do Usuário - Renderizado condicionalmente e posicionado absolutamente */}
+      {isLoggedIn && (
+        <div className="absolute top-4 right-4 z-10"> {/* Adicionei z-10 para garantir que fique acima de outros elementos */}
           <UserProfile userName={userName} profileImage={profileImage} />
-        )}
-
+        </div>
+      )}
+      <MainContainer>
         {/* Últimas atividades */}
         <section className="mb-8">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">

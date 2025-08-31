@@ -4,7 +4,7 @@ import React from 'react';
 
 function UserProfile({ userName, profileImage }) {
   return (
-    <section className="flex items-center gap-6 mb-8 ml-auto">
+    <section className="flex items-center gap-6 mb-8">
       <div className="flex flex-col justify-center">
         <p className="text-muted-foreground">Bem vindo!</p>
         <strong className="text-xl text-primary">{userName}</strong>
