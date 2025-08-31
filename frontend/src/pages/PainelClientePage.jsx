@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import MainContainer from '../components/MainContainer';
+import UserProfile from '../components/UserProfile'; // Importa o novo componente
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,6 +19,12 @@ import {
 } from 'lucide-react';
 
 function PainelClientePage() {
+  // Simula o estado de login e dados do usuário
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // TODO: Integrar com o sistema de autenticação real para gerenciar o estado de login
+  // Altere para false para testar o comportamento de não logado
+  const [userName, setUserName] = useState('Zezinho');
+  const [profileImage, setProfileImage] = useState('/assets/images/painel-cliente/profile-1.jpg');
+
   const features = [
     { icon: Calendar, label: 'agendamentos' },
     { icon: ClipboardList, label: 'histórico' },
@@ -30,18 +37,10 @@ function PainelClientePage() {
   return (
     <Layout>
       <MainContainer>
-        {/* Perfil do Usuário */}
-        <section className="flex items-center gap-6 mb-8">
-          <div className="flex flex-col justify-center">
-            <p className="text-muted-foreground">Bem vindo!</p>
-            <strong className="text-xl text-primary">Zezinho</strong>
-          </div>
-          <img
-            className="w-20 h-20 rounded-full object-cover border-2 border-primary"
-            src="/assets/images/painel-cliente/profile-1.jpg"
-            alt="foto do perfil do usuário"
-          />
-        </section>
+        {/* Perfil do Usuário - Renderizado condicionalmente */}
+        {isLoggedIn && (
+          <UserProfile userName={userName} profileImage={profileImage} />
+        )}
 
         {/* Últimas atividades */}
         <section className="mb-8">
