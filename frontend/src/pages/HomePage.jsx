@@ -45,15 +45,6 @@ function HomePage() {
             <section className="flex flex-col items-center text-center mb-10 w-full">
               <div className="relative w-full">
                 <img src="/assets/images/home/home-jifa.jpg" alt="Banner da home" className="w-full rounded-xl shadow-lg" />
-                <div className="absolute top-5 right-5 flex items-center gap-5 bg-white p-4 rounded-2xl shadow-md">
-                  <div className="text-right">
-                    <h1 className="text-black text-lg font-bold m-0">Bem vinda!</h1>
-                    <p className="text-black text-2xl font-bold m-0">Zezinho</p>
-                  </div>
-                  <div className="cursor-pointer" onClick={handleProfileClick}>
-                    <img src="/assets/images/home/profile-jifa.png" alt="Foto de perfil do usuario" className="w-20 h-20 rounded-full border-2 border-gray-200" />
-                  </div>
-                </div>
               </div>
               <div className="flex flex-col items-center w-full mt-8">
                 <h2 className="text-[#2B446C] text-3xl md:text-5xl font-bold mb-4 drop-shadow">REALIZE SUA AVALIAÇÃO GRATUITA!</h2>
