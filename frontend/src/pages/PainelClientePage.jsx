@@ -38,7 +38,7 @@ function PainelClientePage() {
     <Layout>
       {/* Perfil do Usuário - Renderizado condicionalmente e posicionado absolutamente */}
       {isLoggedIn && (
-        <div className="absolute top-4 right-4 z-10"> {/* Adicionei z-10 para garantir que fique acima de outros elementos */}
+        <div className="absolute top-20 right-4 z-10"> {/* Adicionei z-10 para garantir que fique acima de outros elementos */}
           <UserProfile userName={userName} profileImage={profileImage} />
         </div>
       )}
