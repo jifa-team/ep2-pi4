@@ -1,19 +1,43 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import MainContainer from '../components/MainContainer';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import {
+  History,
+  Calendar,
+  CreditCard,
+  Stethoscope,
+  CircleCheck,
+  ClipboardList,
+  NotebookText,
+  Bell,
+  Newspaper,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react';
 
 function PainelClientePage() {
+  const features = [
+    { icon: Calendar, label: 'agendamentos' },
+    { icon: ClipboardList, label: 'histórico' },
+    { icon: Stethoscope, label: 'prontuário' },
+    { icon: NotebookText, label: 'tratamentos' },
+    { icon: CreditCard, label: 'pagamentos' },
+    { icon: Bell, label: 'notificações' },
+  ];
+
   return (
     <Layout>
       <MainContainer>
         {/* Perfil do Usuário */}
         <section className="flex items-center gap-6 mb-8">
           <div className="flex flex-col justify-center">
-            <p className="text-gray-600">Bem vindo!</p>
-            <strong className="text-xl text-blue-700">Zezinho</strong>
+            <p className="text-muted-foreground">Bem vindo!</p>
+            <strong className="text-xl text-primary">Zezinho</strong>
           </div>
           <img
-            className="w-20 h-20 rounded-full object-cover border-2 border-blue-500"
+            className="w-20 h-20 rounded-full object-cover border-2 border-primary"
             src="/assets/images/painel-cliente/profile-1.jpg"
             alt="foto do perfil do usuário"
           />
@@ -22,89 +46,61 @@ function PainelClientePage() {
         {/* Últimas atividades */}
         <section className="mb-8">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <i className="fa-solid fa-clock-rotate-left text-blue-600"></i>
+            <History className="w-5 h-5 text-primary" />
             Suas Últimas Atividades
           </h2>
           <ul className="grid md:grid-cols-3 gap-4">
-            <li className="bg-blue-50 rounded-lg p-4 flex flex-col items-center shadow">
-              <p className="font-medium text-blue-800 mb-1">Consulta</p>
-              <p className="text-gray-600 mb-2">15/02</p>
-              <i className="fa-solid fa-calendar text-2xl text-blue-500"></i>
+            <li className="bg-card rounded-lg p-4 flex flex-col items-center shadow-sm border">
+              <p className="font-medium text-primary mb-1">Consulta</p>
+              <p className="text-muted-foreground mb-2">15/02</p>
+              <Calendar className="w-8 h-8 text-primary/80" />
             </li>
-            <li className="bg-blue-50 rounded-lg p-4 flex flex-col items-center shadow">
-              <p className="font-medium text-blue-800 mb-1">Fatura</p>
-              <p className="text-gray-600 mb-2">11/02</p>
-              <i className="fa-solid fa-credit-card text-2xl text-blue-500"></i>
+            <li className="bg-card rounded-lg p-4 flex flex-col items-center shadow-sm border">
+              <p className="font-medium text-primary mb-1">Fatura</p>
+              <p className="text-muted-foreground mb-2">11/02</p>
+              <CreditCard className="w-8 h-8 text-primary/80" />
             </li>
-            <li className="bg-blue-50 rounded-lg p-4 flex flex-col items-center shadow">
-              <p className="font-medium text-blue-800 mb-1">Últimas Prescrições</p>
-              <p className="text-gray-600 mb-2">02/02</p>
-              <i className="fa-solid fa-laptop-medical text-2xl text-blue-500"></i>
+            <li className="bg-card rounded-lg p-4 flex flex-col items-center shadow-sm border">
+              <p className="font-medium text-primary mb-1">Últimas Prescrições</p>
+              <p className="text-muted-foreground mb-2">02/02</p>
+              <Stethoscope className="w-8 h-8 text-primary/80" />
             </li>
           </ul>
         </section>
 
         {/* Funcionalidades do Sistema */}
         <section className="mb-8">
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <i className="fa-regular fa-circle-check text-blue-600"></i>
-            Você Pode
-          </h2>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded font-semibold mb-6 hover:bg-blue-700 transition">
-            novo agendamento
-          </button>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-semibold flex items-center gap-2">
+              <CircleCheck className="w-5 h-5 text-primary" />
+              Você Pode
+            </h2>
+            <Button size="lg">novo agendamento</Button>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="flex flex-col items-center">
-              <div className="bg-blue-100 rounded-full p-4 mb-2">
-                <i className="fa-solid fa-calendar text-xl text-blue-700"></i>
-              </div>
-              <p className="text-gray-700 font-medium">agendamentos</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-blue-100 rounded-full p-4 mb-2">
-                <i className="fa-solid fa-clipboard-list text-xl text-blue-700"></i>
-              </div>
-              <p className="text-gray-700 font-medium">histórico</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-blue-100 rounded-full p-4 mb-2">
-                <i className="fa-solid fa-laptop-medical text-xl text-blue-700"></i>
-              </div>
-              <p className="text-gray-700 font-medium">prontuário</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-blue-100 rounded-full p-4 mb-2">
-                <i className="fa-solid fa-notes-medical text-xl text-blue-700"></i>
-              </div>
-              <p className="text-gray-700 font-medium">tratamentos</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-blue-100 rounded-full p-4 mb-2">
-                <i className="fa-solid fa-credit-card text-xl text-blue-700"></i>
-              </div>
-              <p className="text-gray-700 font-medium">pagamentos</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-blue-100 rounded-full p-4 mb-2">
-                <i className="fa-solid fa-bell text-xl text-blue-700"></i>
-              </div>
-              <p className="text-gray-700 font-medium">notificações</p>
-            </div>
+            {features.map((feature, index) => (
+              <Card key={index} className="hover:border-primary/80 transition-colors cursor-pointer">
+                <CardContent className="flex flex-col items-center justify-center p-6">
+                  <feature.icon className="w-8 h-8 mb-2 text-primary/90" />
+                  <p className="text-foreground font-medium text-center">{feature.label}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
         {/* Blog Posts */}
         <section className="mb-8">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <i className="fa-regular fa-newspaper text-blue-600"></i>
+            <Newspaper className="w-5 h-5 text-primary" />
             Blog
           </h2>
           <div className="flex items-center gap-4">
-            <button className="nav-arrow prev-arrow bg-blue-100 p-2 rounded-full" aria-label="Post anterior">
-              <i className="fa-solid fa-chevron-left text-blue-700"></i>
-            </button>
-            <div className="flex gap-4">
-              <article className="blog-post w-32 h-32 rounded-lg overflow-hidden shadow">
+            <Button variant="outline" size="icon" aria-label="Post anterior">
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <div className="flex-grow grid grid-cols-3 gap-4">
+              <article className="w-full h-32 rounded-lg overflow-hidden shadow-md">
                 <a href="#link-para-post-1">
                   <img
                     src="/assets/images/painel-cliente/blog1-jifa.png"
@@ -113,7 +109,7 @@ function PainelClientePage() {
                   />
                 </a>
               </article>
-              <article className="blog-post w-32 h-32 rounded-lg overflow-hidden shadow">
+              <article className="w-full h-32 rounded-lg overflow-hidden shadow-md">
                 <a href="#link-para-post-2">
                   <img
                     src="/assets/images/painel-cliente/blog2-jifa.png"
@@ -122,7 +118,7 @@ function PainelClientePage() {
                   />
                 </a>
               </article>
-              <article className="blog-post w-32 h-32 rounded-lg overflow-hidden shadow">
+              <article className="w-full h-32 rounded-lg overflow-hidden shadow-md">
                 <a href="#link-para-post-3">
                   <img
                     src="/assets/images/painel-cliente/blog3-jifa.png"
@@ -132,9 +128,9 @@ function PainelClientePage() {
                 </a>
               </article>
             </div>
-            <button className="nav-arrow next-arrow bg-blue-100 p-2 rounded-full" aria-label="Próximo post">
-              <i className="fa-solid fa-chevron-right text-blue-700"></i>
-            </button>
+            <Button variant="outline" size="icon" aria-label="Próximo post">
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
         </section>
       </MainContainer>
