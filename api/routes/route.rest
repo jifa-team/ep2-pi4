@@ -72,23 +72,20 @@ Content-Type: application/json
 
 # Buscar resumo das últimas atividades
 GET http://localhost:3000/client-panel/atividades/{{userId}}
-Authorization: Bearer {{token}}
 
 # Buscar a última consulta
 
 GET http://localhost:3000/client-panel/consultas/ultimas/{{userId}}
-Authorization: Bearer {{token}}
 
 # Listar todos os agendamentos de um usuário
 
 GET http://localhost:3000/client-panel/agendamentos/{{userId}}
-Authorization: Bearer {{token}}
 
 # Criar um novo agendamento
 
 POST http://localhost:3000/client-panel/agendamentos
 Content-Type: application/json
-Authorization: Bearer {{token}}
+
 {
   "userId": "{{userId}}",
   "date": "2025-09-15T14:00:00.000Z",
@@ -100,7 +97,6 @@ Authorization: Bearer {{token}}
 
 PUT http://localhost:3000/client-panel/agendamentos/{{appointmentId}}
 Content-Type: application/json
-Authorization: Bearer {{token}}
 {
   "date": "2025-09-16T15:30:00.000Z",
   "time": "12:30",
@@ -110,28 +106,23 @@ Authorization: Bearer {{token}}
 # Deletar/cancelar um agendamento
 
 DELETE http://localhost:3000/client-panel/agendamentos/{{appointmentId}}
-Authorization: Bearer {{token}}
 
 # Buscar histórico de consultas
 
 GET http://localhost:3000/client-panel/historico/{{userId}}
-Authorization: Bearer {{token}}
 
 # Buscar prontuário do cliente
 
 GET http://localhost:3000/client-panel/prontuario/{{userId}}
-Authorization: Bearer {{token}}
 
 # Listar todas as notificações de um usuário
 
 GET http://localhost:3000/client-panel/notificacoes/{{userId}}
-Authorization: Bearer {{token}}
 
 # Marcar uma notificação como lida
 
 PUT http://localhost:3000/client-panel/notificacoes/{{notificationId}}/lida
 Content-Type: application/json
-Authorization: Bearer {{token}}
 
 {
   "userId": "{{userId}}"
