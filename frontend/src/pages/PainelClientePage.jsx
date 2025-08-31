@@ -20,7 +20,7 @@ import {
 
 function PainelClientePage() {
   // Simula o estado de login e dados do usuário
-  const [isLoggedIn] = useState(true); // TODO: Integrar com o sistema de autenticação real para gerenciar o estado de login
+  const [isLoggedIn] = useState(false); // TODO: Integrar com o sistema de autenticação real para gerenciar o estado de login
   // Altere para false para testar o comportamento de não logado
   const [userName] = useState('Zezinho');
   const [profileImage] = useState('/assets/images/painel-cliente/profile-1.jpg');
