@@ -1,0 +1,197 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/assets/images/bg-jifa.png'); /* Imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #2B446C;
+    line-height: 1.6;
+    overflow-x: hidden; /* Remove a barra de rolagem lateral */
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 5px solid #fff; /* Adiciona uma borda branca de 5px */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Seções de largura total */
+.full-width-section {
+    width: 100%;
+    padding: 40px 20px; /* Espaçamento interno com padding lateral */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+.container {
+    width: 100%; /* Ocupa toda a largura */
+    padding: 0 20px; /* Padding lateral para evitar que o conteúdo encoste nas bordas */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+/* Flexbox para "Sobre Nós" e "Especialidades" lado a lado */
+.content-wrapper {
+    display: flex;
+    gap: 40px; /* Espaço entre "Sobre Nós" e "Especialidades" */
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 100%; /* Remove qualquer limite de largura */
+    margin: 0; /* Remove a centralização */
+}
+
+.about {
+    flex: 1 1 60%; /* "Sobre Nós" ocupa 60% do espaço */
+}
+
+.specialties {
+    color:rgb(0, 0, 0);
+    flex: 1 1 40%; /* "Especialidades" ocupa 40% do espaço */
+}
+
+/* Estilos para "Sobre Nós" */
+.about h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about p {
+    color:rgb(0, 0, 0);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Estilos para "Especialidades" */
+.specialties h2 {
+    color: #2B446C;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.specialties-grid {
+    display: flex;
+    gap: 20px; /* Espaço entre as colunas */
+}
+
+.specialties-column {
+    list-style-type: none;
+    padding: 0;
+    flex: 1; /* Cada coluna ocupa metade do espaço */
+}
+
+.specialties li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.icon-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.specialties li span {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Flexbox para "Missão, Visão e Valores" e Vídeo */
+.mission-video-wrapper {
+    display: flex;
+    gap: 40px; /* Espaço entre "Missão" e o vídeo */
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 100%; /* Remove qualquer limite de largura */
+    margin: 0; /* Remove a centralização */
+}
+
+.mission {
+    flex: 1 1 60%; /* "Missão" ocupa 60% do espaço */
+}
+
+.mission-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre os botões */
+}
+
+.mission-item {
+    width: 100%;
+}
+
+.mission-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #A4E3E9;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center; /* Centraliza o texto */
+    transition: background-color 0.3s ease;
+}
+
+.mission-button:hover {
+    background-color: #9bc8cc;
+}
+
+.mission-text {
+    color:#2B446C;
+    display: none; /* Oculta o texto inicialmente */
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centraliza o texto */
+}
+
+.video-content {
+    flex: 1 1 40%; /* Vídeo ocupa 40% do espaço */
+}
+
+.video-content video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content-wrapper, .mission-video-wrapper {
+        flex-direction: column;
+    }
+
+    .about, .specialties, .mission, .video-content {
+        flex: 1 1 100%;
+    }
+
+    .specialties-grid {
+        flex-direction: column;
+    }
+
+    .full-width-section {
+        padding: 20px 10px; /* Reduz o espaçamento em telas menores */
+    }
+}
