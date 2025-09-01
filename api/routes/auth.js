@@ -24,10 +24,17 @@ router.post('/', async (req, res) => {
       { expiresIn: '1h', algorithm: 'HS256' }
     );
 
-    return res.json({ token });
+    return res.json({
+      success: true,
+      message: `Bem-vindo(a), ${user.firstName}! Login realizado com sucesso.`,
+      data: { token }
+    });
   } catch (err) {
     console.error('AUTH_ERROR:', err);
-    return res.status(500).json({ message: 'Erro no login' });
+    return res.status(500).json({
+      success: false,
+      message: 'Ocorreu um erro ao tentar efetuar login. Por favor, tente novamente mais tarde.'
+    });
   }
 });
 
