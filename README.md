@@ -152,11 +152,11 @@ Estas são as rotas protegidas que alimentam o painel do cliente. Todas elas exi
 
 Aproveite para explorar e testar cada uma delas! ✨
 
-## 💡 Possíveis usos da nossa API
+## 💡 Possíveis usos da nossa API [Componente Extensionista]
 
 Nossa API foi projetada para ser flexível e pode ser a base para diversas soluções no mundo real, otimizando a gestão de clínicas e a experiência do paciente. Aqui estão alguns exemplos hipotéticos:
 
-1.  **Aplicativo para Pacientes:[Componente Extensionista]**
+1.  **Aplicativo para Pacientes:**
     Uma clínica poderia desenvolver um aplicativo móvel (para Android e iOS) que se conecta à nossa API. Com ele, os pacientes poderiam:
     -   Agendar, visualizar e cancelar consultas diretamente pelo celular.
     -   Acessar seu histórico de tratamentos e prontuário.
