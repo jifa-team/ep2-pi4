@@ -152,7 +152,7 @@ Estas são as rotas protegidas que alimentam o painel do cliente. Todas elas exi
 
 Aproveite para explorar e testar cada uma delas! ✨
 
-## 💡 Possíveis usos da nossa API [Componente Extensionista]
+## 💡  _[Componente Extensionista]_ Possíveis usos da nossa API
 
 Nossa API foi projetada para ser flexível e pode ser a base para diversas soluções no mundo real, otimizando a gestão de clínicas e a experiência do paciente. Aqui estão alguns exemplos hipotéticos:
 
