@@ -6,6 +6,7 @@ import ClinicaPage from "./pages/ClinicaPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import QuemSomosPage from "./pages/QuemSomosPage";
 import PainelClientePage from "./pages/PainelClientePage";
+import ProtectedRoute from "./components/ProtectedRoute"; // Import ProtectedRoute
 
 function App() {
   return (
@@ -15,7 +16,15 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastro" element={<CadastroPage />} />
         <Route path="/clinica" element={<ClinicaPage />} />
-        <Route path="/painel-cliente" element={<PainelClientePage />} />        
+        {/* Protected Route */}
+        <Route
+          path="/painel-cliente"
+          element={
+            <ProtectedRoute>
+              <PainelClientePage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/quem-somos" element={<QuemSomosPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
