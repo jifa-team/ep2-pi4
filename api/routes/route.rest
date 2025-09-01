@@ -73,19 +73,21 @@ Content-Type: application/json
 # Buscar resumo das últimas atividades
 GET http://localhost:3000/client-panel/atividades/{{userId}}
 
-# Buscar a última consulta
+###
 
+# Buscar a última consulta
 GET http://localhost:3000/client-panel/consultas/ultimas/{{userId}}
 
-# Listar todos os agendamentos de um usuário
+###
 
+# Listar todos os agendamentos de um usuário
 GET http://localhost:3000/client-panel/agendamentos/{{userId}}
 
-# Criar um novo agendamento
+###
 
+# Criar um novo agendamento
 POST http://localhost:3000/client-panel/agendamentos
 Content-Type: application/json
-
 {
   "userId": "{{userId}}",
   "date": "2025-09-15T14:00:00.000Z",
@@ -93,8 +95,9 @@ Content-Type: application/json
   "notes": "Consulta de retorno."
 }
 
-# Atualizar um agendamento existente
+###
 
+# Atualizar um agendamento existente
 PUT http://localhost:3000/client-panel/agendamentos/{{appointmentId}}
 Content-Type: application/json
 {
@@ -103,27 +106,31 @@ Content-Type: application/json
   "notes": "Consulta reagendada."
 }
 
-# Deletar/cancelar um agendamento
+###
 
+# Deletar/cancelar um agendamento
 DELETE http://localhost:3000/client-panel/agendamentos/{{appointmentId}}
 
-# Buscar histórico de consultas
+###
 
+# Buscar histórico de consultas
 GET http://localhost:3000/client-panel/historico/{{userId}}
 
-# Buscar prontuário do cliente
+###
 
+# Buscar prontuário do cliente
 GET http://localhost:3000/client-panel/prontuario/{{userId}}
 
-# Listar todas as notificações de um usuário
+###
 
+# Listar todas as notificações de um usuário
 GET http://localhost:3000/client-panel/notificacoes/{{userId}}
 
-# Marcar uma notificação como lida
+###
 
+# Marcar uma notificação como lida
 PUT http://localhost:3000/client-panel/notificacoes/{{notificationId}}/lida
 Content-Type: application/json
-
 {
   "userId": "{{userId}}"
 }
