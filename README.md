@@ -150,4 +150,26 @@ Estas são as rotas protegidas que alimentam o painel do cliente. Todas elas exi
 | `GET` | `/notificacoes/:userId` | Lista todas as notificações do usuário. |
 | `PUT` | `/notificacoes/:id/lida`| Marca uma notificação como lida. |
 
-Aproveite para explorar e testar cada uma delas! 🚀
+Aproveite para explorar e testar cada uma delas! ✨
+
+## 💡  _[Componente Extensionista]_ Possíveis usos da nossa API
+
+Nossa API foi projetada para ser flexível e pode ser a base para diversas soluções no mundo real, otimizando a gestão de clínicas e a experiência do paciente. Aqui estão alguns exemplos hipotéticos:
+
+1.  **Aplicativo para Pacientes:**
+    Uma clínica poderia desenvolver um aplicativo móvel (para Android e iOS) que se conecta à nossa API. Com ele, os pacientes poderiam:
+    -   Agendar, visualizar e cancelar consultas diretamente pelo celular.
+    -   Acessar seu histórico de tratamentos e prontuário.
+    -   Receber notificações e lembretes sobre agendamentos.
+
+2.  **Dashboard de Business Intelligence (BI):**
+    Gestores de uma rede de clínicas poderiam integrar a API a ferramentas como Power BI ou Google Data Studio para:
+    -   Analisar o fluxo de agendamentos em tempo real.
+    -   Identificar horários de pico e ociosidade para otimizar a alocação de dentistas.
+    -   Monitorar o crescimento da base de pacientes e a receita.
+
+3.  **Sistema de Comunicação Automatizada:**
+    Um serviço de automação poderia usar a API para enviar lembretes de consulta via WhatsApp ou SMS 24 horas antes do horário agendado, ajudando a reduzir a taxa de não comparecimento (no-show).
+
+4.  **Integração com Convênios:**
+    A API poderia servir como ponte para sistemas de convênios odontológicos, automatizando a validação de cobertura e o processo de faturamento, o que simplificaria a parte financeira tanto para a clínica quanto para o paciente.
