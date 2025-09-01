@@ -1,11 +1,12 @@
+@baseUrl = http://localhost:3000
+@userId = 000000000000000000000000
+@appointmentId = 000000000000000000000000
+@notificationId = 000000000000000000000000
+
+### consultar collection de usuarios ###
 GET http://localhost:3000/users
 
-###
-
-GET http://localhost:3000/users/68af4b9aa4b428d5f7fb0f30
-
-###
-
+### criar usuario ###
 POST http://localhost:3000/users
 Content-Type: application/json
 
@@ -25,13 +26,16 @@ Content-Type: application/json
   }
 }
 
+### usuario inexistente ###
+GET http://localhost:3000/users/68af4b9aa4b428d5f7fb0f30
+
 ###
 
-DELETE http://localhost:3000/users/68af4b9aa4b428d5f7fb0f30
+DELETE http://localhost:3000/users/68b5bac21edf17d4b561d727
 
 ###
 
-PATCH http://localhost:3000/users/68af5241a4b428d5f7fb0f3a
+PATCH http://localhost:3000/users/68b4b0e848a0b0be1810a30e
 Content-Type: application/json
 
 {
@@ -39,7 +43,16 @@ Content-Type: application/json
   "lastName": "Vicentino"
 }
 
+### LOGIN ###
+POST http://localhost:3000/api/auth
+Content-Type: application/json
+
+{
+  "email": "email1@example.com",
+  "password": "senha"
+}
 ###
+
 ### APPOINTMENTS ###
 
 # Listar todos os agendamentos
@@ -52,20 +65,10 @@ POST http://localhost:3000/appointments
 Content-Type: application/json
 
 {
-  "userId": "68af5241a4b428d5f7fb0f3a",
+  "userId": "{{userId}}",
   "date": "2025-09-30T10:00:00.000Z",
   "time": "15:00",
   "notes": "Check-up de rotina."
-}
-
-### LOGIN ###
-
-POST http://localhost:3000/api/auth
-Content-Type: application/json
-
-{
-  "email": "email1@example.com",
-  "password": "senha"
 }
 
 ### PAINEL DO CLIENTE ###
@@ -97,6 +100,7 @@ Content-Type: application/json
 
 PUT http://localhost:3000/client-panel/agendamentos/{{appointmentId}}
 Content-Type: application/json
+
 {
   "date": "2025-09-16T15:30:00.000Z",
   "time": "12:30",

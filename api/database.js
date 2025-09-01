@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = 'mongodb://localhost:27017/jifaodonto'; // Altere para sua URI se usar Atlas ou outro host
+const uri = 'mongodb://localhost:27017/jifaOdonto'; // Altere para sua URI se usar Atlas ou outro host
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
