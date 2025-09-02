@@ -31,7 +31,7 @@ const LoginForm = () => {
         throw new Error(data.message || 'Erro ao fazer login.');
       }
 
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.data.token);
       // Assuming the API returns user ID or some identifier in the token payload
       // For now, let's just redirect. In a real app, you'd decode the token or fetch user data.
       navigate('/painel-cliente');

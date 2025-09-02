@@ -4,6 +4,7 @@ import MainContainer from '../components/MainContainer';
 import UserProfile from '../components/UserProfile'; // Importa o novo componente
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import apiFetch from '../lib/api'; // Importa a função apiFetch
 import {
   History,
   Calendar,
@@ -21,6 +22,11 @@ import {
 // Helper function to decode JWT token (simplified for this context)
 const decodeJwt = (token) => {
   try {
+    // Check if the token is a valid string and has three parts
+    if (!token || typeof token !== 'string' || token.split('.').length !== 3) {
+      console.error("Invalid or malformed JWT provided:", token);
+      return null;
+    }
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -68,26 +74,17 @@ function PainelClientePage() {
 
     try {
       // Fetch Last Activities
-      const activitiesResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/client-panel/atividades/${userId}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
-      if (!activitiesResponse.ok) throw new Error('Falha ao buscar últimas atividades.');
+      const activitiesResponse = await apiFetch(`/client-panel/atividades/${userId}`);
       const activitiesData = await activitiesResponse.json();
       setLastActivities(activitiesData);
 
       // Fetch Appointments
-      const appointmentsResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/client-panel/agendamentos/${userId}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
-      if (!appointmentsResponse.ok) throw new Error('Falha ao buscar agendamentos.');
+      const appointmentsResponse = await apiFetch(`/client-panel/agendamentos/${userId}`);
       const appointmentsData = await appointmentsResponse.json();
       setAppointments(appointmentsData);
 
       // Fetch Notifications
-      const notificationsResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/client-panel/notificacoes/${userId}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
-      if (!notificationsResponse.ok) throw new Error('Falha ao buscar notificações.');
+      const notificationsResponse = await apiFetch(`/client-panel/notificacoes/${userId}`);
       const notificationsData = await notificationsResponse.json();
       setNotifications(notificationsData);
 
@@ -119,20 +116,12 @@ function PainelClientePage() {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/client-panel/agendamentos`, {
+      const response = await apiFetch(`/client-panel/agendamentos`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
         body: JSON.stringify(newAppointmentData),
       });
 
       const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.erro || 'Erro ao agendar consulta.');
-      }
 
       alert('Consulta agendada com sucesso!');
       setShowAppointmentModal(false);
@@ -329,74 +318,4 @@ function PainelClientePage() {
 
 export default PainelClientePage;
 
-        {/* Funcionalidades do Sistema */}
-        <section className="mb-8">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold flex items-center gap-2">
-              <CircleCheck className="w-5 h-5 text-primary" />
-              Você Pode
-            </h2>
-            <Button size="lg">novo agendamento</Button>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {features.map((feature, index) => (
-              <Card key={index} className="hover:border-primary/80 transition-colors cursor-pointer">
-                <CardContent className="flex flex-col items-center justify-center p-6">
-                  <feature.icon className="w-8 h-8 mb-2 text-primary/90" />
-                  <p className="text-foreground font-medium text-center">{feature.label}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Blog Posts */}
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-            <Newspaper className="w-5 h-5 text-primary" />
-            Blog
-          </h2>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="icon" aria-label="Post anterior">
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <div className="flex-grow grid grid-cols-3 gap-4">
-              <article className="w-full h-32 rounded-lg overflow-hidden shadow-md">
-                <a href="#link-para-post-1">
-                  <img
-                    src="/assets/images/painel-cliente/blog1-jifa.png"
-                    alt="Descrição da imagem do blog post 1"
-                    className="w-full h-full object-cover"
-                  />
-                </a>
-              </article>
-              <article className="w-full h-32 rounded-lg overflow-hidden shadow-md">
-                <a href="#link-para-post-2">
-                  <img
-                    src="/assets/images/painel-cliente/blog2-jifa.png"
-                    alt="Descrição da imagem do blog post 2"
-                    className="w-full h-full object-cover"
-                  />
-                </a>
-              </article>
-              <article className="w-full h-32 rounded-lg overflow-hidden shadow-md">
-                <a href="#link-para-post-3">
-                  <img
-                    src="/assets/images/painel-cliente/blog3-jifa.png"
-                    alt="Descrição da imagem do blog post 3"
-                    className="w-full h-full object-cover"
-                  />
-                </a>
-              </article>
-            </div>
-            <Button variant="outline" size="icon" aria-label="Próximo post">
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-        </section>
-      </MainContainer>
-    </Layout>
-  );
-}
-
-export default PainelClientePage;
+        
