@@ -152,6 +152,55 @@ Estas são as rotas protegidas que alimentam o painel do cliente. Todas elas exi
 
 Aproveite para explorar e testar cada uma delas! ✨
 
+## 🔗 Integrando API com o Frontend
+
+Esta seção detalha o processo passo a passo de como a comunicação entre o backend (API) e o frontend (React) foi estabelecida, resultando em uma aplicação web dinâmica e funcional.
+
+### Passo 1: Configuração Inicial e CORS
+
+O primeiro passo foi garantir que o servidor da API (rodando em `http://localhost:3000`) pudesse aceitar requisições do servidor de desenvolvimento do frontend (Vite, em `http://localhost:5173`). Isso foi feito configurando o middleware `cors` no `api/app.js`, permitindo a comunicação entre as duas origens.
+
+### Passo 2: Cadastro de Usuário - A Primeira Conexão
+
+A primeira funcionalidade integrada foi o cadastro de novos usuários.
+
+1.  **Requisição do Frontend:** O componente `CadastroForm.jsx` foi implementado para enviar uma requisição `POST` para o endpoint `/users` da API com os dados do formulário.
+2.  **Debugging Inicial:** O primeiro desafio foi um bug no próprio formulário, que não estava "controlando" os inputs. Isso foi corrigido para garantir que os dados digitados pelo usuário fossem corretamente enviados no corpo da requisição.
+
+### Passo 3: Login e Gerenciamento de Token
+
+Com o cadastro funcionando, o próximo passo foi autenticar os usuários.
+
+1.  **Autenticação:** O `LoginForm.jsx` foi conectado ao endpoint `POST /api/auth`.
+2.  **Recebimento do JWT:** Após a validação das credenciais, a API gera um **JSON Web Token (JWT)** e o envia de volta para o frontend.
+3.  **Armazenamento Local:** O token recebido é armazenado no `localStorage` do navegador. Isso é crucial para que o usuário continue autenticado enquanto navega pela aplicação.
+4.  **Correção de Contrato:** Durante o processo, foi necessário ajustar o frontend para interpretar corretamente a estrutura do JSON (`data.data.token`) que a API estava retornando.
+
+### Passo 4: Centralizando Chamadas Autenticadas (A Melhoria Chave)
+
+Para evitar repetir o código de autenticação em cada requisição, foi adotada uma abordagem mais robusta e de fácil manutenção:
+
+1.  **Criação do Helper `apiFetch`:** Foi criado o arquivo `frontend/src/lib/api.js`.
+2.  **Lógica Centralizada:** Esta função `apiFetch` encapsula todas as chamadas `fetch`. Antes de cada requisição, ela automaticamente:
+    -   Verifica se existe um token no `localStorage`.
+    -   Se existir, adiciona o cabeçalho `Authorization: Bearer <token>` à requisição.
+    -   Centraliza o tratamento de erros básicos de rede.
+
+### Passo 5: Consumo de Rotas Protegidas
+
+Com o `apiFetch` pronto, o acesso a dados protegidos tornou-se simples.
+
+-   O `PainelClientePage.jsx` foi refatorado para usar o `apiFetch` para buscar dados de endpoints como `/client-panel/atividades/:userId`.
+-   O ID do usuário é extraído do próprio JWT (decodificado no lado do cliente), permitindo que a página busque apenas os dados pertencentes ao usuário logado.
+
+### Passo 6: Implementando o Logout
+
+A etapa final do ciclo de autenticação foi a implementação do logout. No componente `UserProfile`, o botão "Sair" executa uma função simples que:
+1.  Remove o token do `localStorage`.
+2.  Redireciona o usuário para a página de `/login`.
+
+Este fluxo completo garante uma experiência de usuário segura e coesa, transformando a JifaOdonto em uma aplicação web verdadeiramente interativa.
+
 ## 💡  _[Componente Extensionista]_ Possíveis usos da nossa API
 
 Nossa API foi projetada para ser flexível e pode ser a base para diversas soluções no mundo real, otimizando a gestão de clínicas e a experiência do paciente. Aqui estão alguns exemplos hipotéticos:
