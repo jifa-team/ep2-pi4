@@ -94,25 +94,29 @@ const CadastroForm = () => {
         </div>
         <div>
           <label htmlFor="email" className="block font-semibold text-blue-900 mb-1">Email*</label>
-          <input type="email" id="email" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="exemplo@gmail.com" required />
+          <input type="email" id="email" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="exemplo@gmail.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="password" className="block font-semibold text-blue-900 mb-1">Senha*</label>
+          <input type="password" id="password" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Digite sua senha" required value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div>
           <label htmlFor="phone" className="block font-semibold text-blue-900 mb-1">Número de Telefone</label>
-          <input type="tel" id="phone" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="+55 (xx) xxxxx-xxxx" />
+          <input type="tel" id="phone" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="+55 (xx) xxxxx-xxxx" value={phone} onChange={(e) => setPhone(e.target.value)} />
         </div>
         <div>
           <label htmlFor="cpf" className="block font-semibold text-blue-900 mb-1">CPF*</label>
-          <input type="text" id="cpf" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="000.000.000-00" required />
+          <input type="text" id="cpf" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="000.000.000-00" required value={cpf} onChange={(e) => setCpf(e.target.value)} />
         </div>
         <div>
           <label className="block font-semibold text-blue-900 mb-1">Endereço</label>
-          <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Rua" />
-          <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 mt-2" placeholder="Complemento" />
+          <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Rua" value={street} onChange={(e) => setStreet(e.target.value)} />
+          <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 mt-2" placeholder="Complemento" value={complement} onChange={(e) => setComplement(e.target.value)} />
         </div>
         <div className="flex gap-4 mt-2">
-          <input type="text" className="w-1/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Cidade" />
-          <input type="text" className="w-1/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Estado" />
-          <input type="text" className="w-1/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="CEP" />
+          <input type="text" className="w-1/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Cidade" value={city} onChange={(e) => setCity(e.target.value)} />
+          <input type="text" className="w-1/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Estado" value={state} onChange={(e) => setState(e.target.value)} />
+          <input type="text" className="w-1/3 px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
         </div>
         <div>
           <button type="submit" className="w-full py-2 bg-blue-900 text-white rounded-md font-semibold hover:bg-blue-800 transition">Cadastrar</button>
