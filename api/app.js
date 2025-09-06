@@ -1,23 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
 const { swaggerUi, specs } = require("./swagger");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
-
-// 🔗 Conexão com banco de dados
-/* 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
-
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Erro de conexão:'));
-db.once('open', () => {
-  console.log('Conexão com o banco de dados estabelecida com sucesso!');
-});
-*/
+// Allow requests from the frontend dev server
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 require('./database');
 

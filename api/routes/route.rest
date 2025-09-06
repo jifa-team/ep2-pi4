@@ -30,12 +30,52 @@ Content-Type: application/json
 GET http://localhost:3000/users/68af4b9aa4b428d5f7fb0f30
 
 ###
+```http
+@baseUrl = http://localhost:3000
+@userId = 68b777e279cdbaf011153641
+@appointmentId = 68bc5c92255d278ef83b3f04
+@notificationId = 000000000000000000000000
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Yjc3N2UyNzljZGJhZjAxMTE1MzY0MSIsImVtYWlsIjoiZW1haWwxQGV4YW1wbGUuY29tIiwiaWF0IjoxNzU3MTc0ODU4LCJleHAiOjE3NTcxNzg0NTh9.c0IH32teJITltvYZpyWJnLcmG5AV41RbVjxjbRgY-ik
 
-DELETE http://localhost:3000/users/68b5bac21edf17d4b561d727
+### USUÁRIOS
+
+# Listar todos os usuários (protegido)
+GET {{baseUrl}}/users
+Authorization: {{token}}
 
 ###
 
-PATCH http://localhost:3000/users/68b4b0e848a0b0be1810a30e
+# Criar usuário (público)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Antônio",
+  "lastName": "da Silva",
+  "email": "email1@example.com",
+  "password": "senha",
+  "phone": "123456789",
+  "cpf": "12345671231",
+  "address": {
+    "street": "Rua Exemplo, 123",
+    "complement": "Apto 45",
+    "city": "São Paulo",
+    "state": "SP",
+    "cep": "01001-000"
+  }
+}
+
+###
+
+# Buscar usuário por ID (protegido)
+GET {{baseUrl}}/users/{{userId}}
+Authorization: {{token}}
+
+###
+
+# Atualizar usuário (protegido)
+PATCH {{baseUrl}}/users/{{userId}}
+Authorization: {{token}}
 Content-Type: application/json
 
 {
@@ -43,25 +83,35 @@ Content-Type: application/json
   "lastName": "Vicentino"
 }
 
-### LOGIN ###
-POST http://localhost:3000/api/auth
+###
+
+# Deletar usuário (protegido)
+DELETE {{baseUrl}}/users/{{userId}}
+Authorization: {{token}}
+
+### AUTENTICAÇÃO
+
+# Login (gera JWT) — público
+POST {{baseUrl}}/api/auth
 Content-Type: application/json
 
 {
   "email": "email1@example.com",
   "password": "senha"
 }
+
+
+### APPOINTMENTS
+
+# Listar todos os agendamentos (protegido)
+GET {{baseUrl}}/appointments
+Authorization: {{token}}
+
 ###
 
-### APPOINTMENTS ###
-
-# Listar todos os agendamentos
-GET http://localhost:3000/appointments
-
-###
-
-# Criar um novo agendamento
-POST http://localhost:3000/appointments
+# Criar agendamento (protegido)
+POST {{baseUrl}}/appointments
+Authorization: {{token}}
 Content-Type: application/json
 
 {
@@ -71,26 +121,55 @@ Content-Type: application/json
   "notes": "Check-up de rotina."
 }
 
-### PAINEL DO CLIENTE ###
+###
 
-# Buscar resumo das últimas atividades
-GET http://localhost:3000/client-panel/atividades/{{userId}}
+# Buscar agendamento por ID (protegido)
+GET {{baseUrl}}/appointments/{{appointmentId}}
+Authorization: {{token}}
 
 ###
 
-# Buscar a última consulta
-GET http://localhost:3000/client-panel/consultas/ultimas/{{userId}}
-
-###
-
-# Listar todos os agendamentos de um usuário
-GET http://localhost:3000/client-panel/agendamentos/{{userId}}
-
-###
-
-# Criar um novo agendamento
-POST http://localhost:3000/client-panel/agendamentos
+# Atualizar agendamento (protegido)
+PATCH {{baseUrl}}/appointments/{{appointmentId}}
+Authorization: {{token}}
 Content-Type: application/json
+
+{
+  "status": "confirmado",
+  "notes": "Atualizado pelo teste"
+}
+
+###
+
+# Deletar agendamento (protegido)
+DELETE {{baseUrl}}/appointments/{{appointmentId}}
+Authorization: {{token}}
+
+### PAINEL DO CLIENTE (todas protegidas)
+
+# Últimas atividades
+GET {{baseUrl}}/client-panel/atividades/{{userId}}
+Authorization: {{token}}
+
+###
+
+# Última consulta
+GET {{baseUrl}}/client-panel/consultas/ultimas/{{userId}}
+Authorization: {{token}}
+
+###
+
+# Agendamentos do usuário
+GET {{baseUrl}}/client-panel/agendamentos/{{userId}}
+Authorization: {{token}}
+
+###
+
+# Criar agendamento (painel cliente)
+POST {{baseUrl}}/client-panel/agendamentos
+Authorization: {{token}}
+Content-Type: application/json
+
 {
   "userId": "{{userId}}",
   "date": "2025-09-15T14:00:00.000Z",
@@ -100,8 +179,9 @@ Content-Type: application/json
 
 ###
 
-# Atualizar um agendamento existente
-PUT http://localhost:3000/client-panel/agendamentos/{{appointmentId}}
+# Atualizar agendamento (painel cliente)
+PUT {{baseUrl}}/client-panel/agendamentos/{{appointmentId}}
+Authorization: {{token}}
 Content-Type: application/json
 
 {
@@ -112,29 +192,37 @@ Content-Type: application/json
 
 ###
 
-# Deletar/cancelar um agendamento
-DELETE http://localhost:3000/client-panel/agendamentos/{{appointmentId}}
+# Deletar agendamento (painel cliente)
+DELETE {{baseUrl}}/client-panel/agendamentos/{{appointmentId}}
+Authorization: {{token}}
 
 ###
 
-# Buscar histórico de consultas
-GET http://localhost:3000/client-panel/historico/{{userId}}
+# Histórico de consultas
+GET {{baseUrl}}/client-panel/historico/{{userId}}
+Authorization: {{token}}
 
 ###
 
-# Buscar prontuário do cliente
-GET http://localhost:3000/client-panel/prontuario/{{userId}}
+# Prontuário do cliente
+GET {{baseUrl}}/client-panel/prontuario/{{userId}}
+Authorization: {{token}}
 
 ###
 
-# Listar todas as notificações de um usuário
-GET http://localhost:3000/client-panel/notificacoes/{{userId}}
+# Listar notificações
+GET {{baseUrl}}/client-panel/notificacoes/{{userId}}
+Authorization: {{token}}
 
 ###
 
-# Marcar uma notificação como lida
-PUT http://localhost:3000/client-panel/notificacoes/{{notificationId}}/lida
+# Marcar notificação como lida
+PUT {{baseUrl}}/client-panel/notificacoes/{{notificationId}}/lida
+Authorization: {{token}}
 Content-Type: application/json
+
 {
   "userId": "{{userId}}"
 }
+
+```

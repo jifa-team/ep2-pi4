@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const authenticateToken = require('../middleware/auth');
 
 // Swagger docs moved to: api/swagger/users.swagger.js
 
 
-router.get('/', async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // Swagger docs moved to: api/swagger/users.swagger.js
-router.get('/:id', getUser, (req, res) => {
+router.get('/:id', authenticateToken, getUser, (req, res) => {
   res.json(req.user);
 });
 
@@ -43,7 +44,7 @@ router.post('/', async (req, res) => {
 });
 
 // Swagger docs moved to: api/swagger/users.swagger.js
-router.patch('/:id', getUser, async (req, res) => {
+router.patch('/:id', authenticateToken, getUser, async (req, res) => {
   if (req.body.firstName != null) req.user.firstName = req.body.firstName;
   if (req.body.lastName != null) req.user.lastName = req.body.lastName;
   if (req.body.email != null) req.user.email = req.body.email;
@@ -63,7 +64,7 @@ router.patch('/:id', getUser, async (req, res) => {
 });
 
 // Swagger docs moved to: api/swagger/users.swagger.js
-router.delete('/:id', getUser, async (req, res) => {
+router.delete('/:id', authenticateToken, getUser, async (req, res) => {
   try {
     await req.user.deleteOne();
     res.json({ message: "Usuário deletado com sucesso" });

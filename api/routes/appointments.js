@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Appointment = require('../models/Appointment');
+const authenticateToken = require('../middleware/auth');
 // Swagger docs moved to: api/swagger/appointments.swagger.js
-router.get('/', async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
     try {
         const appointments = await Appointment.find().populate('userId', 'firstName lastName email');
         res.json(appointments);
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Swagger docs moved to: api/swagger/appointments.swagger.js
-router.post('/', async (req, res) => {
+router.post('/', authenticateToken, async (req, res) => {
     const { userId, date, time, notes } = req.body;
 
     if (!userId || !date || !time) {
@@ -35,12 +36,12 @@ router.post('/', async (req, res) => {
 });
 
 // Swagger docs moved to: api/swagger/appointments.swagger.js
-router.get('/:id', getAppointment, (req, res) => {
+router.get('/:id', authenticateToken, getAppointment, (req, res) => {
     res.json(res.appointment);
 });
 
 // Swagger docs moved to: api/swagger/appointments.swagger.js
-router.patch('/:id', getAppointment, async (req, res) => {
+router.patch('/:id', authenticateToken, getAppointment, async (req, res) => {
     if (req.body.status != null) res.appointment.status = req.body.status;
     if (req.body.notes != null) res.appointment.notes = req.body.notes;
 
@@ -53,7 +54,7 @@ router.patch('/:id', getAppointment, async (req, res) => {
 });
 
 // Swagger docs moved to: api/swagger/appointments.swagger.js
-router.delete('/:id', getAppointment, async (req, res) => {
+router.delete('/:id', authenticateToken, getAppointment, async (req, res) => {
     try {
         await res.appointment.deleteOne();
         res.json({ message: "Agendamento deletado com sucesso" });

@@ -1,33 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken'); 
+const authenticateToken = require('../middleware/auth');
 const Appointment = require('../models/Appointment');
-const User = require('../models/User');
 const ClientPanel = require('../models/ClientPanel');
-const Notification = require('../models/Notification'); 
+const Notification = require('../models/Notification');
 
-
-// Middleware de autenticação
-const verificarAutenticacao = (req, res, next) => {
-
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-
-  if (token == null) {
-    return res.status(401).json({ erro: 'Não autenticado: token não fornecido' });
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) {
-      return res.status(403).json({ erro: 'Não autorizado: token inválido' });
-    }
-    req.user = user;
-    next();
-  });
-};
-
-// 1. Últimas Atividades 
-router.get('/atividades/:userId', verificarAutenticacao, async (req, res) => {
+// 1. Últimas Atividades
+router.get('/atividades/:userId', authenticateToken, async (req, res) => {
   try {
     const userId = req.params.userId;
 
@@ -42,12 +21,12 @@ router.get('/atividades/:userId', verificarAutenticacao, async (req, res) => {
 
     res.json(ultimasAtividades);
   } catch (erro) {
-    console.error('Erro em /atividades:', erro); 
+    console.error('Erro em /atividades:', erro);
     res.status(500).json({ erro: 'Erro ao buscar atividades' });
   }
 });
 
-router.get('/consultas/ultimas/:userId', verificarAutenticacao, async (req, res) => {
+router.get('/consultas/ultimas/:userId', authenticateToken, async (req, res) => {
   try {
     const userId = req.params.userId;
     const consulta = await Appointment.findOne({ userId }).sort({ date: -1 });
@@ -59,7 +38,7 @@ router.get('/consultas/ultimas/:userId', verificarAutenticacao, async (req, res)
 });
 
 // 2. Agendamentos
-router.get('/agendamentos/:userId', verificarAutenticacao, async (req, res) => {
+router.get('/agendamentos/:userId', authenticateToken, async (req, res) => {
   try {
     const userId = req.params.userId;
     const agendamentos = await Appointment.find({ userId });
@@ -70,7 +49,7 @@ router.get('/agendamentos/:userId', verificarAutenticacao, async (req, res) => {
   }
 });
 
-router.post('/agendamentos', verificarAutenticacao, async (req, res) => {
+router.post('/agendamentos', authenticateToken, async (req, res) => {
   try {
     const { userId, date, time, notes } = req.body;
     if (!userId || !date || !time) return res.status(400).json({ erro: 'Campos obrigatórios faltando' });
@@ -83,7 +62,7 @@ router.post('/agendamentos', verificarAutenticacao, async (req, res) => {
   }
 });
 
-router.put('/agendamentos/:id', verificarAutenticacao, async (req, res) => {
+router.put('/agendamentos/:id', authenticateToken, async (req, res) => {
   try {
     const { date, time, notes } = req.body;
     const agendamento = await Appointment.findByIdAndUpdate(req.params.id, { date, time, notes }, { new: true });
@@ -95,7 +74,7 @@ router.put('/agendamentos/:id', verificarAutenticacao, async (req, res) => {
   }
 });
 
-router.delete('/agendamentos/:id', verificarAutenticacao, async (req, res) => {
+router.delete('/agendamentos/:id', authenticateToken, async (req, res) => {
   try {
     const agendamento = await Appointment.findByIdAndDelete(req.params.id);
     if (!agendamento) return res.status(404).json({ erro: 'Agendamento não encontrado' });
@@ -107,7 +86,7 @@ router.delete('/agendamentos/:id', verificarAutenticacao, async (req, res) => {
 });
 
 // 3. Histórico
-router.get('/historico/:userId', verificarAutenticacao, async (req, res) => {
+router.get('/historico/:userId', authenticateToken, async (req, res) => {
   try {
     const userId = req.params.userId;
     const historico = await Appointment.find({ userId }).select('date time notes');
@@ -119,7 +98,7 @@ router.get('/historico/:userId', verificarAutenticacao, async (req, res) => {
 });
 
 // 4. Prontuário
-router.get('/prontuario/:userId', verificarAutenticacao, async (req, res) => {
+router.get('/prontuario/:userId', authenticateToken, async (req, res) => {
   try {
     const userId = req.params.userId;
     const clientPanel = await ClientPanel.findOne({ userId }).select('preferences lastAccess historico');
@@ -132,7 +111,7 @@ router.get('/prontuario/:userId', verificarAutenticacao, async (req, res) => {
 });
 
 // 7. Notificações
-router.get('/notificacoes/:userId', verificarAutenticacao, async (req, res) => {
+router.get('/notificacoes/:userId', authenticateToken, async (req, res) => {
   try {
     const userId = req.params.userId;
     const notificacoes = await Notification.find({ userId });
@@ -143,7 +122,7 @@ router.get('/notificacoes/:userId', verificarAutenticacao, async (req, res) => {
   }
 });
 
-router.put('/notificacoes/:id/lida', verificarAutenticacao, async (req, res) => {
+router.put('/notificacoes/:id/lida', authenticateToken, async (req, res) => {
   try {
     const userId = req.body.userId;
     const notificacao = await Notification.findOneAndUpdate(
