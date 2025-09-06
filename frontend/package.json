@@ -34,5 +34,10 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.3",
     "vite": "^7.0.4"
-  }
+  },
+  "description": "Este projeto é a migração do front-end estático da JifaOdonto para ReactJS, utilizando Vite para desenvolvimento rápido e moderno.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
