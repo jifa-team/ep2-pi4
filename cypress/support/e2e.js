@@ -1,3 +1,2 @@
-import './commands';
-// register cucumber preprocessor commands if needed
-require('@badeball/cypress-cucumber-preprocessor/commands');
+require('./commands');
+// comandos do Cypress são registrados em cypress/support/commands.js
